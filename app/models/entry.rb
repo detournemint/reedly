@@ -6,7 +6,7 @@ class Entry < ActiveRecord::Base
     Entry.create!({
       feed_id: feed.id, 
       title: entry_data.title, 
-      content: entry_data.content_encoded,
+      content: entry_data.content_encoded || entry_data.description,
       guid: entry_data.guid
     })
   end

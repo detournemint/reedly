@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140319225009) do
     t.integer  "feed_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "guid"
+    t.string   "guid"
   end
 
   create_table "feeds", force: true do |t|

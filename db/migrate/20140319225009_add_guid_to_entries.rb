@@ -1,5 +1,5 @@
 class AddGuidToEntries < ActiveRecord::Migration
   def change
-    add_column :entries, :guid, :integer
+    add_column :entries, :guid, :string
   end
 end
