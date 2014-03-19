@@ -46,6 +46,8 @@ gem 'backbone-on-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'rails_12factor'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
