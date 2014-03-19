@@ -2,12 +2,14 @@ class FeedsController < ApplicationController
 
   def index
     @feeds = Feed.all
-    render :index
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :json => @feeds.to_json }
+    end
   end
 
   def show
     @feed = Feed.find(params[:id])
-
     render :json => @feed
   end
 

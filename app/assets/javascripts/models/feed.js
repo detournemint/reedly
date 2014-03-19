@@ -1,6 +1,6 @@
-Reedly.Models.Feed = new Backbone.Model.extend({
+Reedly.Models.Feed = Backbone.Model.extend({
   initialize:function(){
-
+    
   },
 
   urlRoot: "/feeds"

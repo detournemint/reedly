@@ -2,19 +2,19 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   initialize: function(feeds, $rootEl){
     this.feeds = feeds;
     this.$rootEl = $rootEl;
-  }
+  },
 
   routes: {
-    "feeds/" : "index"
-  }
+    "" : "index"
+  },
 
   index: function(){
     var feedIndexView = new Reedly.Views.FeedIndexView({
       collection: this.feeds
     });
 
-    _swapView(feedIndexView);
-  }
+    this._swapView(feedIndexView);
+  },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

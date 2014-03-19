@@ -4,7 +4,17 @@ window.Reedly = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $('#content')
+    var feeds = new Reedly.Collections.Feeds();
+    feeds.fetch({
+      success: function(){
+        new Reedly.Routers.FeedRouter(feeds, $rootEl);
+        Backbone.history.start();
+      },
+      error: function(){
+        console.log("fetch failed");
+      }
+    });
   }
 };
 

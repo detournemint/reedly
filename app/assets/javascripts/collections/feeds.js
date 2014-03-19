@@ -1,4 +1,4 @@
 Reedly.Collections.Feeds = Backbone.Collection.extend({
-  model: Reedly.Model.Feed
+  model: Reedly.Models.Feed,
   url: "/feeds"
 })
