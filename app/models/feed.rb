@@ -10,6 +10,7 @@ class Feed < ActiveRecord::Base
       feed_data.entries.each do |entry|
         Entry.create_with_json!(entry, feed);
       end
+      feed
     rescue SimpleRSSError
       return nil
     end
