@@ -6,6 +6,9 @@ class FeedsController < ApplicationController
   end
 
   def show
+    @feed = Feed.find(params[:id])
+
+    render :json => @feed
   end
 
   def create
@@ -15,12 +18,20 @@ class FeedsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def new
     @feed = Feed.new
     render :new
+  end
+
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy
+
+    render :json => @feed
+  end
+
+  def feed_params
+    params.require(:feed).permit(:title, :url, :user_id)
   end
 
 
