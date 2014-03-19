@@ -11,3 +11,19 @@
  *= require_self
  *= require_tree .
  */
+
+ #sidebar {
+  float: left;
+  padding: 10px;
+ }
+
+#content {
+    overflow: auto;
+    height: 500px;
+}
+
+.entry {
+  padding: 10px;
+  border: 1px dashed black;
+  margin: 20px;
+}
