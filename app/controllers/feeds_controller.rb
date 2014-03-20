@@ -1,4 +1,5 @@
 class FeedsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @feeds = Feed.includes(:entries)
