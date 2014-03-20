@@ -6,7 +6,8 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
   },
 
   events: {
-    "click .add-feed-button" : "add"
+    "click .add-feed-button" : "add",
+    "click .delete-feed-button" : "destroy"
   },
 
   render: function(){    
@@ -25,6 +26,10 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
       wait: true
     });
     this.collection.fetch();
-  }
+  }, 
+
+  destroy: function(){
+
+  },
   
 })

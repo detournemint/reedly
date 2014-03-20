@@ -15,4 +15,24 @@ class Feed < ActiveRecord::Base
       return nil
     end
   end
+
+  def reload
+    # reloads entries
+    begin
+      feed_data = SimpleRSS.parse(open(url))
+      self.title = feed_data.title
+      save!
+
+      existing_entry_guids = Entry.pluck(:guid).sort
+      feed_data.entries.each do |entry_data|
+        unless existing_entry_guids.include?(entry_data.guid)
+          Entry.create_with_json!(entry_data, self)
+        end
+      end
+
+      self
+    rescue SimpleRSSError
+      return false
+    end
+  end
 end

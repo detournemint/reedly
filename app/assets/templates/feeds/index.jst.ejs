@@ -6,6 +6,6 @@
 
 <% feeds.each(function(feed){ %>
   <li>
-    <a href="#feeds/<%= feed.id %>"><%= feed.escape('title') %></a>
+    <a class="feed" href="#feeds/<%= feed.id %>"><%= feed.escape('title') %></a>
   </li>
 <% }) %>
