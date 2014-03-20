@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   before_filter :require_login!
 
   def index
-    @feeds = Feed.includes(:entries).find_by_user_id(current_user.id)
+    @feeds = Feed.includes(:entries).where(user_id: current_user.id)
     respond_to do |format|
       format.html { render :index }
       format.json { render :json => @feeds.to_json(include: :entries) } 

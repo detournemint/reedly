@@ -25,6 +25,7 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
     } ,{
       wait: true
     });
+    debugger
     this.collection.fetch();
   }, 
 
