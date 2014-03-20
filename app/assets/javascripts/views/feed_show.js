@@ -3,6 +3,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   template: JST["feeds/show"],
 
   initialize: function(){
+    this.listenTo(this.model.get('entries'), "all", this.render);
   },
 
   events: {
@@ -19,9 +20,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   },
 
   destroy: function(event){
-    debugger
-    var entry = this.model.get(event.currentTarget.id);
-    entry.destroy();
+    this.model.get('entries')._byId[event.currentTarget.id].destroy();
   },
 
   refresh: function () {

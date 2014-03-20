@@ -1,7 +1,11 @@
-<% feed.entries().forEach(function(entry){ %>
-  <div class="entry">
-   <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
-   <p> <%= entry.escape('content') %> </p>
-   <button class="feed-entry-read" id="<%= entry.id %>">Read? </button>
-  </div>
-<% }) %>
+<% if(feed.entries().length > 0){ %>
+  <% feed.entries().forEach(function(entry){ %>
+    <div class="entry">
+     <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
+     <p> <%= entry.escape('content') %> </p>
+     <button class="feed-entry-read" id="<%= entry.escape("id") %>">Read? </button>
+    </div>
+  <% }) %>
+<% } else { %>
+  <h2> You Read It All! </h2>
+<% } %>
