@@ -2,28 +2,30 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   tagName: 'ul',
   template: JST["feeds/show"],
 
-  initialize: function(){
-    
+  initialize: function(attribute){
+    // this.listenTo(this.model.get('entries'), "add", this.render);
   },
 
   events: {
+
   },
 
   render: function(){    
     var rendered = this.template({
-      feed: this.model,
-      entries: this.model.get('entries')
+      feed: this.model
     });
     this.$el.html(rendered);
     return this
   },
 
-  add: function(){
-    var newFeed = $('input[name=feed\\[url\\]]').val();
-    this.collection.create({
-      url: newFeed
-    } ,{
-      wait: true
+  refresh: function () {
+    this.model.get('entries').fetch({
+      success: function(){
+        console.log("woo")
+      },
+      error: function () {
+        console.log('Could not refresh view for some reason');
+      }
     });
   }
   

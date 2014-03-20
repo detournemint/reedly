@@ -1,4 +1,4 @@
-<% entries.forEach(function(entry){ %>
+<% feed.get('entries').forEach(function(entry){ %>
   <div class="entry">
    <h3> <a href="<%= entry.guid %>"><%= entry.title %></a> </h3>
    <p> <%= entry.content %> </p>
