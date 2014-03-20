@@ -1,8 +1,8 @@
 <% if(feed.entries().length > 0){ %>
   <% feed.entries().forEach(function(entry){ %>
-    <div class="entry">
+    <div class="entry" id="<%= entry.escape("id") %>">
      <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
-     <p> <%= entry.get('content') %> </p>
+     <div class="content"><p> <%= entry.get('content') %> </p></div>
      <button class="feed-entry-read" id="<%= entry.escape("id") %>">Read? </button>
     </div>
   <% }) %>

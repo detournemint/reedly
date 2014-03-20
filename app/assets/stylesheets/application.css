@@ -27,3 +27,8 @@
   border: 1px dashed black;
   margin: 20px;
 }
+
+.selected{
+  border: 3px solid blue;
+
+}
