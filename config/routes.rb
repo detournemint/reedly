@@ -1,6 +1,10 @@
 Reedly::Application.routes.draw do
   devise_for :users
-  root to: "static_pages#home"
+
+  get "/welcome", to: "static_pages#home"
+
+  root to: "feeds#index"
+
   resources :feeds do
     resources :entries
   end

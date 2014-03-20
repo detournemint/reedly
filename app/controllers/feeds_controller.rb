@@ -1,5 +1,5 @@
 class FeedsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :require_login!
 
   def index
     @feeds = Feed.includes(:entries).find_by_user_id(current_user.id)
@@ -38,6 +38,9 @@ class FeedsController < ApplicationController
     params.require(:feed).permit(:title, :url, :user_id)
   end
 
+  def require_login!
+    redirect_to "/welcome" and return unless current_user
+  end
 
 end
 

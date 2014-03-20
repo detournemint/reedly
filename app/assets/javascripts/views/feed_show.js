@@ -7,7 +7,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   },
 
   events: {
-    "click .feed-entry-read" : "destroy"
+    "click .feed-entry-read" : "destroy",
 
   },
 
@@ -18,6 +18,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     this.$el.html(rendered);
     return this
   },
+
 
   destroy: function(event){
     this.model.get('entries')._byId[event.currentTarget.id].destroy();
