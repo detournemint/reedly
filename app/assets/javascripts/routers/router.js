@@ -6,7 +6,7 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "index",
+    "feeds" : "index",
     "feeds/:id" : "show" 
   },
 

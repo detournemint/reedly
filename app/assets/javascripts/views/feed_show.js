@@ -19,11 +19,9 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   },
 
   destroy: function(event){
-    console.log(event.currentTarget)
-    console.log(this.model.get(event.currentTarget.id))
     debugger
-    var feed = this.model.get(event.currentTarget.id);
-    feed.destroy();
+    var entry = this.model.get(event.currentTarget.id);
+    entry.destroy();
   },
 
   refresh: function () {
