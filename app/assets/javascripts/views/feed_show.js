@@ -7,7 +7,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   },
 
   events: {
-    "click .feed-entry-read" : "destroy",
+    "click .feed-entry-read" : "destroy"
 
   },
 
