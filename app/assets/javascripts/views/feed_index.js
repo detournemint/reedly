@@ -28,8 +28,9 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
     this.collection.fetch();
   }, 
 
-  destroy: function(){
-
+  destroy: function(event){
+    var feed = this.collection.get(event.currentTarget.id);
+    feed.destroy();
   },
   
 })

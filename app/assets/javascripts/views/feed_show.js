@@ -2,11 +2,11 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   tagName: 'ul',
   template: JST["feeds/show"],
 
-  initialize: function(attribute){
-    // this.listenTo(this.model.get('entries'), "add", this.render);
+  initialize: function(){
   },
 
   events: {
+    "click .feed-entry-read" : "destroy"
 
   },
 
@@ -18,11 +18,16 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     return this
   },
 
+  destroy: function(event){
+    console.log(event.currentTarget)
+    console.log(this.model.get(event.currentTarget.id))
+    debugger
+    var feed = this.model.get(event.currentTarget.id);
+    feed.destroy();
+  },
+
   refresh: function () {
     this.model.get('entries').fetch({
-      success: function(){
-        console.log("woo")
-      },
       error: function () {
         console.log('Could not refresh view for some reason');
       }

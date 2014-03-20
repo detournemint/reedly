@@ -19,9 +19,11 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   },
 
   show: function(id){
+    var feed = this.feeds.get(id);
     var showView = new Reedly.Views.FeedShowView({
-      model: this.feeds.get(id)
+      model: feed
     });
+    feed.fetch();
     this._swapView(showView);
   },
 
