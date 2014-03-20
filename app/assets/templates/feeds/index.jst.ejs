@@ -1,4 +1,5 @@
 <h1>Reedly</h1>
+
 <li>
   <input class="add-feed" type="text" name="feed[url]">
   <button class="add-feed-button"> Add Feed </button>
@@ -10,3 +11,7 @@
     <button class="delete-feed-button" id="<%= feed.id %>">Delete Feed </button>
   </li>
 <% }) %>
+
+<footer>
+<a href="/users/sign_out" data-method="delete" rel="nofollow">Logout</a>
+</footer>

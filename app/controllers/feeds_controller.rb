@@ -2,7 +2,7 @@ class FeedsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @feeds = Feed.includes(:entries)
+    @feeds = Feed.includes(:entries).find_by_user_id(current_user.id)
     respond_to do |format|
       format.html { render :index }
       format.json { render :json => @feeds.to_json(include: :entries) } 
@@ -16,7 +16,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.create_feed(params[:feed][:url])
+    @feed = Feed.create_feed(params[:feed][:url], current_user.id)
     if @feed
       render :json => @feed
     end

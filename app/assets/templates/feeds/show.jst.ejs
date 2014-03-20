@@ -2,7 +2,7 @@
   <% feed.entries().forEach(function(entry){ %>
     <div class="entry">
      <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
-     <p> <%= entry.escape('content') %> </p>
+     <p> <%= entry.get('content') %> </p>
      <button class="feed-entry-read" id="<%= entry.escape("id") %>">Read? </button>
     </div>
   <% }) %>

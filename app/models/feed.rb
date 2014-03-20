@@ -3,10 +3,10 @@ class Feed < ActiveRecord::Base
   belongs_to :user
   has_many :entries
 
-  def self.create_feed(url)
+  def self.create_feed(url, id)
     feed_data = SimpleRSS.parse open(url)
     begin
-      feed = Feed.create!(title: feed_data.title, url: url, user_id: 1)
+      feed = Feed.create!(title: feed_data.title, url: url, user_id: id)
       feed_data.entries.each do |entry|
         Entry.create_with_json!(entry, feed);
       end
