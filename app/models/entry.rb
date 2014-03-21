@@ -7,7 +7,9 @@ class Entry < ActiveRecord::Base
       feed_id: feed.id, 
       title: entry_data.title, 
       content: entry_data.content_encoded || entry_data.description,
-      guid: entry_data.guid
+      guid: entry_data.guid,
+      published_date: entry_data.pubDate,
+      link: entry_data.link
     })
   end
 end
