@@ -4,5 +4,13 @@
 
 </div>
 <div id="content">
-  No Feeds!
+<h2> Top Stories </h2>
+  <% @feeds.each do |feed| %>
+    <h3> <%= feed.title %> </h3>
+    <% feed.entries.each do |entry| %>
+      <div class="entry">
+        <h4><a href="<%= entry.guid %>"> <%= entry.title %> </a><h4>
+      </div>
+    <% end %>
+  <% end %>
 </div>
