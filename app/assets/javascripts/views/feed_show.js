@@ -4,10 +4,11 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
 
   initialize: function(){
     this.listenTo(this.collection, "all", this.render);
+    this.readEntries = []
   },
 
   events: {
-    "click .feed-entry-read" : "destroy",
+    "click .keep-unread" : "unread",
     "mouseenter .entry" : "selected",
     "mouseout .entry" : "read"
 
@@ -28,15 +29,28 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
 
   read: function(event){
     $(event.currentTarget).addClass("read");
+    if (!_.contains(this.readEntries, event.currentTarget.id)){
+      this.readEntries.push(event.currentTarget.id);
+    }
   },
+
+  // unread: function(event){
+  //   this.readEntries = _.without(this.readEntries, $(event.currentTarget).data("entry-id"));
+  // },
 
   leave: function(){
     this.deleteReadPosts();
   },
 
   deleteReadPosts: function(){
-    debugger
-    console.log(this.model.get('entries')._byId[event.currentTarget.id])
+    var that = this;
+    this.readEntries.forEach(function(id){
+      that.model.get('entries')._byId[id].destroy({
+        success: function(){
+        that.model.collection.trigger("reset");
+      }
+      });
+    });
   },
 
 
