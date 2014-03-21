@@ -48,6 +48,9 @@ gem 'backbone-on-rails'
 
 gem 'rails_12factor'
 
+gem 'sanitize'
+gem 'htmlentities'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

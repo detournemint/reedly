@@ -1,7 +1,8 @@
 <% if(this.collection.length > 0){ %>
   <% this.collection.forEach(function(entry){ %>
     <div class="entry" id="<%= entry.escape("id") %>">
-     <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
+     <h3> <a href="<%= entry.escape('link') %>"><%= entry.escape('title') %></a> </h3>
+     Published On: <div class="publishedDate"><%= new Date(entry.escape('published_date')) %></div>
      <div class="content"><%= entry.get('content') %></div>
      <!-- <button class="feed-entry-read" data-entry-id="<%= entry.escape("id") %>">Keep Unread?</button> -->
     </div>
