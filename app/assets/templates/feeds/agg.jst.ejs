@@ -1,0 +1,20 @@
+<% if(this.collection.length > 0){ %>
+  <% this.collection.forEach(function(feed){ %>
+    <div class="feed" id="<%= feed.escape("id") %>">
+     <h3 class="feed-title"> 
+        <a href="#feeds/<%= feed.escape('id') %>">
+          <%= feed.escape('title') %>
+        </a> 
+      </h3>
+      <button class="delete-feed" data-feed-id="<%= feed.escape("id") %>"> 
+        Delete Feed
+      </button>
+
+     <% feed.entries().each(function(entry){ %>
+        <li><%= entry.escape('title') %></li>
+    <% }); %>
+    </div>
+  <% }) %>
+<% } else { %>
+  <h2> You Read It All! </h2>
+<% } %>
