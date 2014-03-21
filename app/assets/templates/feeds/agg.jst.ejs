@@ -5,16 +5,18 @@
         <a href="#feeds/<%= feed.escape('id') %>">
           <%= feed.escape('title') %>
         </a> 
-      </h3>
-      <button class="delete-feed" data-feed-id="<%= feed.escape("id") %>"> 
-        Delete Feed
-      </button>
-
-     <% feed.entries().each(function(entry){ %>
-        <li><%= entry.escape('title') %></li>
-    <% }); %>
+      </h3><button class="delete-feed" data-feed-id="<%= feed.escape("id") %>"> Delete Feed</button>
+      <ul>
+      <% if(feed.entries().length > 0){ %>
+        <% feed.entries().each(function(entry){ %>
+          <li><%= entry.escape('title') %></li>
+        <% }); %>
+      <% } else { %>
+        <h4> No new entries </h4>
+      <% } %>
+      </ul>
     </div>
   <% }) %>
 <% } else { %>
-  <h2> You Read It All! </h2>
+  <h2> You have no feeds, please add some. </h2>
 <% } %>

@@ -47,8 +47,8 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     this.readEntries.forEach(function(id){
       that.model.get('entries')._byId[id].destroy({
         success: function(){
-        that.model.collection.trigger("reset");
-      }
+         that.model.collection.trigger("reset");
+        }
       });
     });
   },
