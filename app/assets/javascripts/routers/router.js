@@ -15,10 +15,10 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
       collection: this.feeds
     });
 
-    var showView = new Reedly.Views.FeedShowView({
+    var agView = new Reedly.Views.FeedAgView({
       collection: this.feeds
     });
-    this._swapView(showView);
+    this._swapView(agView);
     this.$sidebar.html(feedIndexView.render().$el);
   },
 
