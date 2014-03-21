@@ -1,5 +1,5 @@
-<% if(feed.entries().length > 0){ %>
-  <% feed.entries().forEach(function(entry){ %>
+<% if(this.collection.length > 0){ %>
+  <% this.collection.forEach(function(entry){ %>
     <div class="entry" id="<%= entry.escape("id") %>">
      <h3> <a href="<%= entry.escape('guid') %>"><%= entry.escape('title') %></a> </h3>
      <div class="content"><%= entry.get('content') %></div>

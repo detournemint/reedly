@@ -2,7 +2,8 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
   tagName: 'ul',
   template: JST["feeds/index"],
   initialize: function(){
-    this.listenTo(this.collection, "add remove", this.render)
+    this.listenTo(this.collection, "add remove", this.render);
+    this.listenTo(this.collection, "reset", this.render);
   },
 
   events: {
