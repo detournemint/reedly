@@ -8,7 +8,8 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
 
   events: {
     "click .feed-entry-read" : "destroy",
-    "mouseenter .entry" : "selected"
+    "mouseenter .entry" : "selected",
+    "mouseout .entry" : "read"
 
   },
 
@@ -23,6 +24,19 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   selected: function(event){
     $(event.currentTarget).addClass("selected");
     $(event.currentTarget).siblings().removeClass("selected");
+  },
+
+  read: function(event){
+    $(event.currentTarget).addClass("read");
+  },
+
+  leave: function(){
+    this.deleteReadPosts();
+  },
+
+  deleteReadPosts: function(){
+    debugger
+    console.log(this.model.get('entries')._byId[event.currentTarget.id])
   },
 
 
