@@ -1,18 +1,13 @@
-<a href="#/feeds"><h1>Reedly</h1></a>
+<a href="#/feeds"><center><img src="assets/reed.png"></center>
+<h1 class="text-center">Reedly</h1></a>
+  
+<input class="add-feed col-xs-1 form-control" type="text" name="feed[url]" placeholder="Enter Feed Url"><a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
 
-<li>
-  <input class="add-feed" type="text" name="feed[url]">
-  <button class="add-feed-button"> Add Feed </button>
-</li>
-
+<ul>
 <% feeds.each(function(feed){ %>
-  <li>
-    <a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a>
-    (<%= feed.entries().length %>)
-    <button class="delete-feed-button" id="<%= feed.id %>">Delete Feed </button>
-  </li>
+    <div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -  (<%= feed.entries().length %>)</div>
 <% }) %>
-
-<footer>
+</ul>
+<div class="sidebar-footer">
 <a href="/users/sign_out" data-method="delete" rel="nofollow">Logout</a>
-</footer>
+</div>

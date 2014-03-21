@@ -14,30 +14,85 @@
 
  @import "bootstrap";
 
+ html {
+  height: 100%;
+ }
+
  @import url(http://fonts.googleapis.com/css?family=Share+Tech);
 
  body {
-  font-family: "Share Tech", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
  }
+
+ .main-row {
+    min-height:100%;
+    width:100%;
+    position:relative;
+   
+  }
  
  #sidebar {
-  float: left;
-  width: 15%;
-  padding: 10px;
+    img {
+      padding-top: 10px
+    }
+    ul{
+      padding-left:10px;
+    }
+
+    .feed-title{
+      font-family: sans-serif;
+      font-size: 12px;
+    }
+
+    .form-control{
+      height: 20px;
+    }   
+
+    h1{
+      padding-top: 5px;
+      margin-top: 0px;
+      font-family: "Share Tech", Helvetica, Arial, sans-serif;
+    }
+    height:100vh;
+    background-color: #16a085;
+
+    a{
+      
+      color: #bdc3c7;
+    }
+    a:link{
+      color: #bdc3c7;
+    }
+    a:visited{
+      color: #bdc3c7;
+    }
+    .sidebar-footer{
+      position: fixed;
+      bottom:5px;
+    }
  }
 
 #content {
+    height: 100vh;
     overflow: auto;
-    height: 500px;
+  ul {
+    padding-left: 5px;
+  }
+
+  background: rgba(221, 235, 232, 0.8);
 }
+
 
 .entry {
   padding: 10px;
-  border: 1px dashed black;
-  margin: 20px;
+  border: 1px solid #8B8B8B;
+  margin: 10px;
+  background-color: #D2DBDF;
+  border-radius: 15px;
 }
 
 .selected{
-  border: 3px solid blue;
+  border: 3px solid #8B8B8B;
+  background-color: #EBEBEB;
 
 }
