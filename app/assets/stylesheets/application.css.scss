@@ -12,6 +12,14 @@
  *= require_tree .
  */
 
+ @import "bootstrap";
+
+ @import url(http://fonts.googleapis.com/css?family=Share+Tech);
+
+ body {
+  font-family: "Share Tech", Helvetica, Arial, sans-serif;
+ }
+ 
  #sidebar {
   float: left;
   padding: 10px;
