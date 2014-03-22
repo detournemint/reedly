@@ -1,6 +1,7 @@
 class Feed < ActiveRecord::Base
   validates :title, :url, presence: true
   belongs_to :user
+  belongs_to :category
   has_many :entries
 
   def self.create_feed(url, id)

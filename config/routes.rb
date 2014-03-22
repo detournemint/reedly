@@ -8,4 +8,6 @@ Reedly::Application.routes.draw do
   resources :feeds do
     resources :entries
   end
+
+  resources :feed_categories
 end
