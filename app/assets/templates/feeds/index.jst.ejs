@@ -3,6 +3,7 @@
   
 <a class="btn" data-toggle="modal" data-target=".add-feed"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
 
+
 <ul>
 <% feeds.each(function(feed){ %>
     <div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -  (<%= feed.entries().length %>)</div>
@@ -13,19 +14,17 @@
 </div>
 
 
-<div id="add-feed-modal>"
-<div class="modal fade add-feed" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade add-feed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
-  
     <div class="modal-content">
       <div class="modal-header">
-        Add Feed
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Feed</h4>
       </div>
       <div class="modal-body">
-        <input class="add-feed form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
+        <input class="form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
       </div>
       <a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
     </div>
   </div>
-</div>
 </div>

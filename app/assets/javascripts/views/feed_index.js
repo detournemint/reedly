@@ -26,10 +26,10 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
     } ,{
       wait: true
     });
-    this.collection.fetch();
-    $('#your-modal-id').modal('hide');
+    $('.add-feed').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
+    this.collection.fetch();
   }, 
 
   destroy: function(event){
