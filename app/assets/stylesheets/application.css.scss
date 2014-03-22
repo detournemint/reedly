@@ -52,19 +52,28 @@
       padding-top: 5px;
       margin-top: 0px;
       font-family: "Share Tech", Helvetica, Arial, sans-serif;
+      
     }
     height:100vh;
-    background-color: #16a085;
+    background: rgba(83, 143, 131, 0.9);
+    h1 a:link{
+      text-decoration:none;
+    }
+    h1 a:visited{
+      text-decoration:none;
+    }
+    h1 a:visited{
+      text-decoration:none;
+    }
 
-    a{
-      
-      color: #bdc3c7;
+    a{ 
+      color: #E8EEF1;
     }
     a:link{
-      color: #bdc3c7;
+      color: #E8EEF1;
     }
     a:visited{
-      color: #bdc3c7;
+      color: #E8EEF1;
     }
     .sidebar-footer{
       position: fixed;

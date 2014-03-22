@@ -9,7 +9,7 @@
       <ul>
       <% if(feed.entries().length > 0){ %>
         <% feed.entries().each(function(entry){ %>
-          <li><%= entry.escape('title') %></li>
+          <h6><li><%= entry.escape('title') %></li></h6>
         <% }); %>
       <% } else { %>
         <h4> No new entries </h4>
