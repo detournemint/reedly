@@ -1,7 +1,7 @@
 <a href="#/feeds"><center><img src="assets/reed.png"></center>
 <h1 class="text-center">Reedly</h1></a>
   
-<input class="add-feed col-xs-1 form-control" type="text" name="feed[url]" placeholder="Enter Feed Url"><a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
+<a class="btn" data-toggle="modal" data-target=".add-feed"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
 
 <ul>
 <% feeds.each(function(feed){ %>
@@ -10,4 +10,22 @@
 </ul>
 <div class="sidebar-footer">
 <a href="/users/sign_out" data-method="delete" rel="nofollow">Logout</a>
+</div>
+
+
+<div id="add-feed-modal>"
+<div class="modal fade add-feed" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+  
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Feed
+      </div>
+      <div class="modal-body">
+        <input class="add-feed form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
+      </div>
+      <a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
+    </div>
+  </div>
+</div>
 </div>
