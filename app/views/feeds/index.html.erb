@@ -1,0 +1,17 @@
+<div class="main-row">
+  <div class="col-xs-2" id="sidebar">
+
+
+  </div>
+  <div class"col-xs-12 pre-scrollable" id="content">
+  <h2> Top Stories </h2>
+    <% @feeds.each do |feed| %>
+      <h3> <%= feed.title %> </h3>
+      <% feed.entries.each do |entry| %>
+        <div class="entry">
+          <h4><a href="<%= entry.guid %>"> <%= entry.title %> </a><h4>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
