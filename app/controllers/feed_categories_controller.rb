@@ -1,8 +1,9 @@
 class FeedCategoriesController < ApplicationController
 
   def index
-    @feedcategories = FeedCategory.includes(:feeds).where(user_id: current_user.id)
-    render :json => @feedcategories.to_json(include: :feeds)
+    @categories = FeedCategory.where(user_id: current_user.id)
+    @feeds = Feed.includes(:entries).where(user_id: current_user.id)
+    render "feed_categories/index"
   end
 
   def create

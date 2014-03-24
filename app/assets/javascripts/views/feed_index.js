@@ -11,7 +11,7 @@ Reedly.Views.FeedIndexView = Backbone.View.extend({
     "click .delete-feed-button" : "destroy"
   },
 
-  render: function(){    
+  render: function(){   
     var rendered = this.template({
       feeds: this.collection
     });

@@ -1,6 +1,7 @@
 Reedly.Routers.FeedRouter = Backbone.Router.extend({
-  initialize: function(feeds, $rootEl, $sidebar){
+  initialize: function(feeds, categories, $rootEl, $sidebar){
     this.feeds = feeds;
+    this.categories = categories;
     this.$rootEl = $rootEl;
     this.$sidebar = $sidebar;
   },
@@ -8,12 +9,13 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   routes: {
     "" : "index",
     "feeds" : "index",
-    "feeds/:id" : "show" 
+    "feeds/:id" : "show", 
+    "categories" : "categoryIndex"
   },
 
   index: function(){
     var feedIndexView = new Reedly.Views.FeedIndexView({
-      collection: this.feeds.categories
+      collection: this.feeds
     });
 
     var agView = new Reedly.Views.FeedAgView({
@@ -21,6 +23,14 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
     });
     this._swapView(agView);
     this.$sidebar.html(feedIndexView.render().$el);
+  },
+
+  categoryIndex: function(){
+    var categoryIndexView = new Reedly.Views.CategoryIndexView({
+      collection: this.categories
+    });
+
+    this.$sidebar.html(categoryIndexView.render().$el);
   },
 
   show: function(id){
