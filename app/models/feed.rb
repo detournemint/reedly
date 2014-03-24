@@ -4,10 +4,10 @@ class Feed < ActiveRecord::Base
   belongs_to :category
   has_many :entries
 
-  def self.create_feed(url, id)
+  def self.create_feed(url, feed_cat, id)
     feed_data = SimpleRSS.parse open(url)
     begin
-      feed = Feed.create!(title: feed_data.title, url: url, user_id: id)
+      feed = Feed.create!(title: feed_data.title, url: url, user_id: id, feed_category_id: feed_cat)
       feed_data.entries.each do |entry|
         Entry.create_with_json!(entry, feed);
       end

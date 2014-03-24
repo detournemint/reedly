@@ -30,6 +30,11 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
       collection: this.categories
     });
 
+    var catView = new Reedly.Views.CategoryView({
+      collection: this.categories
+    });
+    this._swapView(catView);
+
     this.$sidebar.html(categoryIndexView.render().$el);
   },
 

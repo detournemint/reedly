@@ -16,7 +16,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.create_feed(params[:feed][:url], current_user.id)
+    @feed = Feed.create_feed(params[:url], params[:feed_category_id], current_user.id)
     if @feed
       render :json => @feed
     end

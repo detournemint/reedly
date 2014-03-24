@@ -7,7 +7,8 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
   },
 
   events: {
-    "click .add-feed-button" : "add",
+    "click .add-feed-button" : "addFeed",
+    "click .add-category-button" : "addCategory"
   },
 
   render: function(){    
@@ -18,10 +19,12 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
     return this
   },
 
-  add: function(event){
+  addFeed: function(event){
     event.preventDefault();
     debugger
-    var formData = $(this).serialize();
+    var newFeed = $('input[name=feed\\[url\\]]').val();
+    var categoryId = $('input[name=category]').val();
+    var formData = { url: newFeed, feed_category_id: categoryId }
     $.ajax({
       url: "/feeds",
       type: "POST",
@@ -35,6 +38,19 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
     $('.modal-backdrop').remove();
     this.collection.fetch();
   }, 
+
+  addCategory: function(){
+    var newCategory = $('input[name=category\\[title\\]]').val();
+    this.collection.create({
+      title: newCategory
+    } ,{
+      wait: true
+    });
+    $('.add-category').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+    this.collection.fetch();
+  },
 
   
 })

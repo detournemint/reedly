@@ -7,9 +7,11 @@ class FeedCategoriesController < ApplicationController
   end
 
   def create
-    @feedcategory = FeedCategory.new(feed_category_params)
-    if @feedcategory
-      render :json => @feedcategory
+    puts "FEED CAT CREATE"
+    puts params
+    @feedCategory = FeedCategory.create!(title: params[:title], user_id: current_user.id)
+    if @feedCategory
+      render :json => @feedCategory
     end
   end
 

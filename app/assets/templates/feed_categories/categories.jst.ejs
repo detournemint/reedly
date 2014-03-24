@@ -1,0 +1,4 @@
+<% categories.each(function(category){ %>
+  <%= category.escape('title') %>
+  </h3><button class="delete-category" data-category-id="<%= category.escape("id") %>"> Delete Category</button>
+<% }) %>
