@@ -1,26 +1,31 @@
 Reedly.Models.Feed = Backbone.Model.extend({
   initialize:function(){
-    this.entries();
   },
 
   urlRoot: "/feeds",
 
   parse: function (response) {
-    if (response["entries"]) {
-      this.entries().set(response["entries"]);
-      delete response["entries"];
+    debugger
+    if (response["categories"]) {
+      this.set(response["categories"]);
+      delete response["categories"];
+    }
+    if (response["UncategorizedFeeds"]) {
+      this.set(response["UncategorizedFeeds"]);
+      delete response["UncategorizedFeeds"];
     }
     return response;
   },
 
-  entries: function () {
-    if (!this.get('entries')) {
-      var feedEntries = new Reedly.Collections.Entries([], { feed: this });
-      this.set({
-        entries: feedEntries
-      });
-    }
-    return this.get('entries');
-  }
+  // entries: function () {
+  //   if (!this.get('entries')) {
+  //     var feedEntries = new Reedly.Collections.Entries([], { feed: this });
+  //     this.set({
+  //       entries: feedEntries
+  //     });
+  //   }
+  //   return this.get('entries');
+  // },
+
 
 });

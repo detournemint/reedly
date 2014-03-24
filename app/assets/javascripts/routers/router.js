@@ -13,7 +13,7 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
 
   index: function(){
     var feedIndexView = new Reedly.Views.FeedIndexView({
-      collection: this.feeds
+      collection: this.feeds.categories
     });
 
     var agView = new Reedly.Views.FeedAgView({

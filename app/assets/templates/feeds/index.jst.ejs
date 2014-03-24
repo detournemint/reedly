@@ -3,10 +3,10 @@ Reedly</a></h1>
   
 <a class="btn" data-toggle="modal" data-target=".add-feed"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
 
-
 <ul>
 <% feeds.each(function(feed){ %>
-    <div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -  (<%= feed.entries().length %>)</div>
+    <% debugger %>
+    <div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -  </div>
 <% }) %>
 </ul>
 <div class="sidebar-footer">
