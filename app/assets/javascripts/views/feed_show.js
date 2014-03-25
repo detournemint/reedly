@@ -3,14 +3,16 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   template: JST["feeds/show"],
 
   initialize: function(){
+    this.listenTo(this.model, "all", this.render);
     this.listenTo(this.collection, "all", this.render);
-    this.readEntries = []
+    // this.readEntries = []
   },
 
   events: {
     "click .keep-unread" : "unread",
     "mouseenter .entry" : "selected",
-    "mouseout .entry" : "read"
+    "mouseout .entry" : "read",
+    "click .delete-entry" : "destroy"
 
   },
 
@@ -27,41 +29,40 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     $(event.currentTarget).siblings().removeClass("selected");
   },
 
-  read: function(event){
-    $(event.currentTarget).addClass("read");
-    if (!_.contains(this.readEntries, event.currentTarget.id)){
-      this.readEntries.push(event.currentTarget.id);
-    }
-  },
+  // read: function(event){
+  //   $(event.currentTarget).addClass("read");
+  //   if (!_.contains(this.readEntries, $(event.currentTarget).data('id'))){
+  //     this.readEntries.push(event.currentTarget.id);
+  //   }
+  // },
 
   // unread: function(event){
   //   this.readEntries = _.without(this.readEntries, $(event.currentTarget).data("entry-id"));
   // },
 
-  leave: function(){
-    this.deleteReadPosts();
-  },
+  // leave: function(){
+  //   this.deleteReadPosts();
+  // },
 
-  deleteReadPosts: function(){
-    var that = this;
-    this.readEntries.forEach(function(id){
-      that.model.get('entries')._byId[id].destroy({
-        success: function(){
-         that.model.collection.trigger("reset");
-        }
-      });
-    });
-  },
+  // deleteReadPosts: function(){
+  //   var that = this;
+  //   this.readEntries.forEach(function(id){
+  //     that.model.get('entries')._byId[id].destroy({
+  //       success: function(){
+  //        FeedCategories.trigger("reset");
+  //       }
+  //     });
+  //   });
+  // },
 
 
   destroy: function(event){
     var that = this;
-    this.model.get('entries')._byId[event.currentTarget.id].destroy({
-      success: function(){
-        that.model.collection.trigger("reset");
+    this.model.get('entries')._byId[$(event.currentTarget).data('id')].destroy({
+      success: function(){  
+        that.model.trigger("reset")
       }
     });
-    
   },
 
   refresh: function () {

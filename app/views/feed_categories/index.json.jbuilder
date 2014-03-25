@@ -8,7 +8,7 @@ json.(@categories) do |category|
     json.url feed.url
     json.user_id feed.user_id
     json.feed_category_id feed.feed_category_id
-    json.entries feed.entries.limit(5)
+    json.entries feed.entries
   end
 end
 

@@ -8,7 +8,7 @@ Reedly.Models.FeedCategory = Backbone.Model.extend({
 
   parse: function (response) {
     if (response["feeds"]) {
-      this.feeds().set(response["feeds"]);
+      this.feeds().set(response["feeds"], { parse: true });
       delete response["feeds"];
     }
     

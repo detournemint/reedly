@@ -10,8 +10,8 @@ Reedly</a></h1>
     <div class="feed-title"><h4><%= category.escape('title') %><h4></div>
     <ul>
     <% category.feeds().each(function(feed){ %>
-      <li><div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a>
-      <%= feed.entries().length %></li>
+      <li><div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -
+      (<%= feed.entries().length %>) </li>
     <% }) %>
     </ul>
 <% }) %>
@@ -31,11 +31,20 @@ Reedly</a></h1>
       <div class="modal-body">
         <form>
           <input class="form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
-          <% feedCategories.each(function(category){ %>
-            <input id="<%= category.escape('title') %>_category" name="category" type="radio" value="<%= category.id %>" />
-            <label for="<%= category.escape('title') %>_category"><%= category.escape('title') %></label>
-          <% }) %>
+          <select>
+            <option selected="selected" value="0">
+              uncategorized
+            </option>
+            <% feedCategories.each(function(category){ %>
+              <option id="<%= category.escape('title') %>_category" name="category" value="<%= category.escape("id") %>" >
+                <%= category.escape('title') %>
+              </option>
+            <% }) %>
+          </select>
         </form>
+      
+
+
       </div>
       <a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
     </div>

@@ -7,22 +7,22 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "index",
+    "index" : "index",
     "feeds" : "index",
     "feeds/:id" : "show", 
-    "categories" : "categoryIndex"
+    "" : "categoryIndex"
   },
 
   index: function(){
-    var feedIndexView = new Reedly.Views.FeedIndexView({
-      collection: this.feeds
+    var categoryIndexView = new Reedly.Views.CategoryIndexView({
+      collection: this.categories
     });
 
     var agView = new Reedly.Views.FeedAgView({
       collection: this.feeds
     });
     this._swapView(agView);
-    this.$sidebar.html(feedIndexView.render().$el);
+    this.$sidebar.html(categoryIndexView.render().$el);
   },
 
   categoryIndex: function(){
@@ -39,13 +39,18 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   },
 
   show: function(id){
-    var feed = this.feeds.get(id);
+    var feed = this.categories.findFeed(id);
+    var categoryIndexView = new Reedly.Views.CategoryIndexView({
+      collection: this.categories
+    });
+
     var showView = new Reedly.Views.FeedShowView({
       model: feed,
       collection: feed.entries()
     });
-    feed.fetch();
+    //feed.fetch();
     this._swapView(showView);
+    this.$sidebar.html(categoryIndexView.render().$el);
   },
 
   _swapView: function (view) {
