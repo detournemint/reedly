@@ -1,14 +1,18 @@
 <h1 id="dashboard-title">Feed Dashboard</h1>
   <% categories.each(function(category){ %>
-    <div class="category">
+    <div class="category col-xs-3">
       <div class="category-title">
-        <%= category.escape('title') %>
+        <h3><%= category.escape('title') %> </h3>
       </div>
-      </h3><button class="delete-category" data-category-id="<%= category.escape("id") %>"> Delete Category</button>
-      <ul>
-      <% category.feeds().each(function(feed){ %>
-        <li><%= feed.get('title') %></li>
-      <% }) %>
-      </ul>
+      <hr>
+      <div class="category-feeds">
+        <ul>
+        <% category.feeds().each(function(feed){ %>
+          <li><h6><%= feed.get('title') %><a class="remove-category-feed" data-feed-id="<%= feed.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></li></h6>
+          <hr>
+        <% }) %>
+        </ul>
+      </div>
+      <h4 class="text-center"><a class="delete-category btn btn-danger col-xs-3 text-center" data-category-id="<%= category.escape("id") %>">delete</a></h4>
     </div>
   <% }) %>
