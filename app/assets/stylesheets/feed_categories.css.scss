@@ -13,7 +13,7 @@
   float: right;
 }
 
-hr{
+hr {
   margin: 5px;
 }
 
@@ -24,4 +24,29 @@ hr{
 
 #dashboard-title{
   margin: 20px;
+}
+
+.add-cat-btn{
+  float: right;
+  margin: 20px;
+}
+
+.glyphicon-chevron-down {
+  font-size: 10px;
+}
+
+.glyphicon-chevron-right{
+  font-size: 10px;
+}
+
+.feed-title{
+  h4 a:link{
+    text-decoration:none;
+  }
+  h4 a:visited{
+    text-decoration:none;
+  }
+  h4 a:link{
+    text-decoration:none;
+  }
 }

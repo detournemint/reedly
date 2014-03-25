@@ -1,19 +1,21 @@
 <h1 class="text-center"><a href="#"><center><img src="assets/reed.png"></center>
 Reedly</a></h1>
   
-<a class="btn" data-toggle="modal" data-target=".add-feed"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
-<a class="btn" data-toggle="modal" data-target=".add-category"><span class="glyphicon glyphicon-plus"></span> Add Category </a> 
+<a class="btn" data-toggle="modal" data-target=".add-feed"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>   
 
 
+<div class="sidebar-categories">
 <ul>
-<% feedCategories.each(function(category){ %>
-    <div class="feed-title"><h4><%= category.escape('title') %><h4></div>
-    <ul>
-    <% category.feeds().each(function(feed){ %>
-      <li><div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -
-      (<%= feed.entries().length %>) </li>
-    <% }) %>
-    </ul>
+<% feedCategories.each(function(category, index){ %>
+    <div class="feed-title"><a class="expand-menu"><h4><span class="glyphicon glyphicon-chevron-right"></span> <%= category.escape('title') %></h4></div></a>
+    <div class="category-feeds-menu hidden" data-id="<%= index %>">
+      <ul>
+      <% category.feeds().each(function(feed){ %>
+        <li><div class="feed-title"><a class="feed" href="/#feeds/<%= feed.id %>"><%= feed.escape('title') %></a> -
+        (<%= feed.entries().length %>) </li>
+      <% }) %>
+      </ul>
+    </div>
 <% }) %>
 </ul>
 <div class="sidebar-footer">
@@ -48,19 +50,4 @@ Reedly</a></h1>
   </div>
 </div>
 
-<div class="modal fade add-category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add Feed</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <input class="form-control" type="text" name="category[title]" placeholder="Enter Category Name">
-        </form>
-      </div>
-      <a class="add-category-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
-    </div>
-  </div>
-</div>
+

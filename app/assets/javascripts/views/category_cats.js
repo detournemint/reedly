@@ -7,7 +7,8 @@ Reedly.Views.CategoryView = Backbone.View.extend({
   },
 
   events: {
-    "click .remove-category-feed" : "destroy"
+    "click .remove-category-feed" : "destroy",
+    "click .add-category-button" : "addCategory"
   },
 
   render: function(){    
@@ -29,6 +30,21 @@ Reedly.Views.CategoryView = Backbone.View.extend({
         that.collection.fetch();
       }
     });
+  },
+
+  addCategory: function(event){
+    event.preventDefault();
+    var newCategory = $('input[name=category\\[title\\]]').val();
+    this.collection.create({
+      title: newCategory
+    } ,{
+      wait: true
+    });
+    $('.add-category').modal('hide');
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+    this.collection.fetch();
+
   },
 
  

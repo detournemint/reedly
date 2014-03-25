@@ -1,4 +1,7 @@
-<h1 id="dashboard-title">Feed Dashboard</h1>
+<div class="row" id="dashboard-header">
+  <h1 id="dashboard-title" class="col-xs-6">Feed Dashboard</h1><a class="btn btn-success add-cat-btn col-xs-2" data-toggle="modal" data-target=".add-category"><span class="glyphicon glyphicon-plus"></span> Add Category </a>
+</div>
+
   <% categories.each(function(category){ %>
     <div class="category col-xs-3">
       <div class="category-title">
@@ -16,3 +19,23 @@
       <h4 class="text-center"><a class="delete-category btn btn-danger col-xs-3 text-center" data-category-id="<%= category.escape("id") %>">delete</a></h4>
     </div>
   <% }) %>
+
+
+
+  <div class="modal fade add-category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Category</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input class="form-control" type="text" name="category[title]" placeholder="Enter Category Name">
+        </form>
+      </div>
+      <a class="add-category-button btn"><span class="glyphicon glyphicon-plus"></span> Add Category </a>  
+    </div>
+  </div>
+</div>
+
