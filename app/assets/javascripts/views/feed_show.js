@@ -29,6 +29,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     $(event.currentTarget).siblings().removeClass("selected");
   },
 
+
   // read: function(event){
   //   $(event.currentTarget).addClass("read");
   //   if (!_.contains(this.readEntries, $(event.currentTarget).data('id'))){

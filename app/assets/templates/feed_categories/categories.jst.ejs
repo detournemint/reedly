@@ -1,9 +1,14 @@
-<% categories.each(function(category){ %>
-  <%= category.escape('title') %>
-  </h3><button class="delete-category" data-category-id="<%= category.escape("id") %>"> Delete Category</button>
-  <ul>
-  <% category.feeds().each(function(feed){ %>
-    <li><%= feed.get('title') %></li>
+<h1 id="dashboard-title">Feed Dashboard</h1>
+  <% categories.each(function(category){ %>
+    <div class="category">
+      <div class="category-title">
+        <%= category.escape('title') %>
+      </div>
+      </h3><button class="delete-category" data-category-id="<%= category.escape("id") %>"> Delete Category</button>
+      <ul>
+      <% category.feeds().each(function(feed){ %>
+        <li><%= feed.get('title') %></li>
+      <% }) %>
+      </ul>
+    </div>
   <% }) %>
-  </ul>
-<% }) %>
