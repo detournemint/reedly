@@ -30,7 +30,6 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
       type: "POST",
       data: formData,
       success: function () {
-        debugger
         that.collection.fetch();
       }
     }); // get it out of the form explicitly

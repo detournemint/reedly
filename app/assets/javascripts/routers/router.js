@@ -43,10 +43,9 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
     var categoryIndexView = new Reedly.Views.CategoryIndexView({
       collection: this.categories
     });
-
     var showView = new Reedly.Views.FeedShowView({
       model: feed,
-      collection: feed.entries()
+      collection: this.categories
     });
     //feed.fetch();
     this._swapView(showView);

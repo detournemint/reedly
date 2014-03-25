@@ -3,7 +3,7 @@ Reedly.Models.Feed = Backbone.Model.extend({
     this.entries();
   },
 
-  urlRoot: "/feeds",
+  urlRoot: "/feed_categories",
 
   parse: function (response) {
     if (response["entries"]) {
