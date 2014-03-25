@@ -8,7 +8,7 @@
       <div class="category-feeds">
         <ul>
         <% category.feeds().each(function(feed){ %>
-          <li><h6><%= feed.get('title') %><a class="remove-category-feed" data-feed-id="<%= feed.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></li></h6>
+          <li><h6><a href="#feeds/<%= feed.get('id')%>"><%= feed.get('title') %></a><a class="remove-category-feed" data-feed-id="<%= feed.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></li></h6>
           <hr>
         <% }) %>
         </ul>
