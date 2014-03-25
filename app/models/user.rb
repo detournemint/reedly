@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :feed_categories
   has_many :feeds
+  after_commit :createdefaultcategory, on: :create
+
+  def createdefaultcategory
+    FeedCategory.create!(title: "Uncategorized", user_id: self.id)
+  end
 end

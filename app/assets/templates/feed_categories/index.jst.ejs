@@ -32,9 +32,6 @@ Reedly</a></h1>
         <form>
           <input class="form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
           <select>
-            <option selected="selected" value="0">
-              uncategorized
-            </option>
             <% feedCategories.each(function(category){ %>
               <option id="<%= category.escape('title') %>_category" name="category" value="<%= category.escape("id") %>" >
                 <%= category.escape('title') %>

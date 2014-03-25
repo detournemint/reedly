@@ -2,5 +2,7 @@
 
 An open source implementation of a single paged rss reader. A clone of feedly. 
 
-Written Backbone.js and Rails. 
+Written Backbone.js and Rails.
+
+**Current Features** 
 
