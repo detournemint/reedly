@@ -8,19 +8,44 @@
 
 user = User.create(email: 'guest@guest.com', password: 'guestguest')
 
+# make feeds
 cat1 = FeedCategory.create(title: "News", user_id: user.id)
 cat2 = FeedCategory.create(title: "Music", user_id: user.id)
 cat3 = FeedCategory.create(title: "Technology", user_id: user.id)
 cat4 = FeedCategory.create(title: "Money", user_id: user.id)
+cat5 = FeedCategory.create(title: "Arts", user_id: user.id)
 
+#news feeds
 Feed.create_feed("http://www.npr.org/rss/rss.php?id=1001", cat1.id, user.id)
 Feed.create_feed("http://rss.cnn.com/rss/cnn_topstories.rss", cat1.id, user.id)
 Feed.create_feed("http://feeds.bbci.co.uk/news/rss.xml", cat1.id, user.id)
+Feed.create_feed("http://feeds.gothamistllc.com/SFist", cat1.id, user.id)
 
+# music feeds
 Feed.create_feed("http://feeds.feedburner.com/stereogum/cBYa", cat2.id, user.id)
-Feed.create_feed("http://rss.cnn.com/rss/cnn_topstories.rss", cat2.id, user.id)
-Feed.create_feed("http://feeds.bbci.co.uk/news/rss.xml", cat2.id, user.id)
+Feed.create_feed("http://pitchfork.com/rss/reviews/albums/", cat2.id, user.id)
+Feed.create_feed("http://www.npr.org/rss/podcast.php?id=510019", cat2.id, user.id)
 
+# Technology Feeds
+Feed.create_feed("http://feeds.feedburner.com/makezineonline", cat3.id, user.id)
+Feed.create_feed("http://www.adafruit.com/blog/feed/", cat3.id, user.id)
+Feed.create_feed("http://feeds2.feedburner.com/hackaday/LgoM", cat3.id, user.id)
 
+# Money Feeds
+Feed.create_feed("http://online.wsj.com/xml/rss/3_7014.xml", cat4.id, user.id)
+Feed.create_feed("http://www.npr.org/rss/podcast.php?id=510289", cat4.id, user.id)
+Feed.create_feed("http://feeds.feedburner.com/MrMoneyMustache", cat4.id, user.id)
+
+#Arts Feeds
+Feed.create_feed("http://www.moma.org/feeds/today_at_moma.rss", cat5.id, user.id)
+Feed.create_feed("http://artforum.com/rss.xml", cat5.id, user.id)
+Feed.create_feed("http://feeds.feedburner.com/SFMOMAtoday", cat5.id, user.id)
+
+#uncategorized Feeds
+
+Feed.create_feed("http://dailycatgif.com/rss", 1, user.id)
+Feed.create_feed("http://feeds.gawker.com/lifehacker/full", 1, user.id)
+Feed.create_feed("https://www.eff.org/rss", 1, user.id)
+Feed.create_feed("http://feeds.feedburner.com/Lessig?format=xmlford.edu/lessig/blog/index.rdf", 1, user.id)
 
 
