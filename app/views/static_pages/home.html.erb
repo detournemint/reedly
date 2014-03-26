@@ -29,7 +29,7 @@
         <%= f.password_field :password, :class => "form-control", :placeholder => "Enter Password" %></div>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default">Sign In</button>
+        <%= f.submit "Sign In", :class => "btn btn-default" %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -58,7 +58,7 @@
           <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Password Again" %>
         </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default">Sign Up</button>
+        <%= f.submit "Sign Up", :class => "btn btn-default" %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
