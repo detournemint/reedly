@@ -5,7 +5,6 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, "all", this.render);
     this.listenTo(this.collection, "all", this.render);
-    // this.readEntries = []
   },
 
   events: {
@@ -21,6 +20,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
       feed: this.model
     });
     this.$el.html(rendered);
+    $($('.category-feeds-menu')[this.model.attributes.feed_category_id - 1]).removeClass('hidden')
     return this
   },
 

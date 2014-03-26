@@ -10,7 +10,6 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
 
   events: {
     "click .add-feed-button" : "addFeed",
-    // "click .add-category-button" : "addCategory"
     "click .expand-menu" : "expandMenu"
   },
 
@@ -42,6 +41,9 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
     $('.add-feed').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
+    this.openCategories.forEach(function(id){
+      $(this.$('.category-feeds-menu')[id]).removeClass('hidden')
+    });
   }, 
 
   expandMenu: function(event){
@@ -57,21 +59,6 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
       target.children().first().children().children().addClass('glyphicon-chevron-right')
     };
   }
-
-  // addCategory: function(event){
-  //   event.preventDefault();
-  //   var newCategory = $('input[name=category\\[title\\]]').val();
-  //   this.collection.create({
-  //     title: newCategory
-  //   } ,{
-  //     wait: true
-  //   });
-  //   $('.add-category').modal('hide');
-  //   $('body').removeClass('modal-open');
-  //   $('.modal-backdrop').remove();
-  //   this.collection.fetch();
-
-  // },
 
   
 })
