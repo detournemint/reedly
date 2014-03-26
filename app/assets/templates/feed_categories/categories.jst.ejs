@@ -1,24 +1,31 @@
 <div class="row" id="dashboard-header">
   <h1 id="dashboard-title" class="col-xs-7">Feed Dashboard</h1><a class="btn btn-success add-cat-btn col-xs-2" data-toggle="modal" data-target=".add-category"><span class="glyphicon glyphicon-plus"></span> Add Category </a>
 </div>
+  
 
+  
+ 
   <% categories.each(function(category){ %>
-    <div class="category col-xs-3">
-      <div class="category-title">
-        <h3><%= category.escape('title') %> </h3>
-      </div>
-      <hr>
-      <div class="category-feeds">
-        <ul>
-        <% category.feeds().each(function(feed){ %>
-          <li><h6><a href="#feeds/<%= feed.get('id')%>"><%= feed.get('title') %></a><a class="remove-category-feed" data-feed-id="<%= feed.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></li></h6>
-          <hr>
-        <% }) %>
-        </ul>
-      </div>
-      <h4 class="text-center"><a class="delete-category btn btn-danger col-xs-3 text-center" data-category-id="<%= category.escape("id") %>">delete</a></h4>
-    </div>
-  <% }) %>
+      <div class="category col-xs-3">
+        <div class="category-title">
+          <h3><%= category.escape('title') %> </h3>
+        </div>
+        <hr>
+        <div class="category-feeds">
+          <ul>
+          <% category.feeds().each(function(feed){ %>
+            <li><h6><a href="#feeds/<%= feed.get('id')%>"><%= feed.get('title') %></a><a class="remove-category-feed" data-feed-id="<%= feed.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></li></h6>
+            <hr>
+          <% }) %>
+          </ul>
+        </div>
+        <h4 class="text-center"><a class="delete-category btn btn-danger col-xs-4 " data-category-id="<%= category.escape("id") %>">delete</a></h4>
+      </div>  
+       </div>
+    <% }) %>
+
+  
+ 
 
 
 

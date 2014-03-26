@@ -3,15 +3,7 @@
 
 
   </div>
-  <div class"col-xs-10" id="content">
-  <h2> Top Stories </h2>
-    <% @feeds.each do |feed| %>
-      <h3> <%= feed.title %> </h3>
-      <% feed.entries.each do |entry| %>
-        <div class="entry">
-          <h4><a href="<%= entry.guid %>"> <%= entry.title %> </a><h4>
-        </div>
-      <% end %>
-    <% end %>
+  <div class="col-xs-10" id="content">
+    <h1>Loading your feeds...</h1>
   </div>
 </div>

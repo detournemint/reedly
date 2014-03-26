@@ -8,7 +8,8 @@ Reedly.Views.CategoryView = Backbone.View.extend({
 
   events: {
     "click .remove-category-feed" : "destroy",
-    "click .add-category-button" : "addCategory"
+    "click .add-category-button" : "addCategory",
+    "click .delete-category" : "destroyCategory"
   },
 
   render: function(){    
@@ -19,8 +20,13 @@ Reedly.Views.CategoryView = Backbone.View.extend({
     return this
   },
 
+  destroyCategory: function(event){
+    var feed = this.collection.get(event.currentTarget.id);
+    this.collection.get($(event.currentTarget).data("category-id")).destroy();
+  },
 
   destroy: function(event){
+    debugger
     var that = this;
     var feedId = $(event.currentTarget).data("feed-id")
     $.ajax({
