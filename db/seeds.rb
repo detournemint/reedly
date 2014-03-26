@@ -45,7 +45,6 @@ Feed.create_feed("http://feeds.feedburner.com/SFMOMAtoday", cat5.id, user.id)
 
 Feed.create_feed("http://dailycatgif.com/rss", 1, user.id)
 Feed.create_feed("http://feeds.gawker.com/lifehacker/full", 1, user.id)
-Feed.create_feed("https://www.eff.org/rss", 1, user.id)
 Feed.create_feed("http://feeds.feedburner.com/Lessig?format=xmlford.edu/lessig/blog/index.rdf", 1, user.id)
 
 
