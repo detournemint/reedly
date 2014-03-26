@@ -4,7 +4,7 @@
      <h2> <a href="<%= entry.escape('link') %>"><%= entry.escape('title') %></a> </h2>
      Published On: <div class="publishedDate"><%= new Date(entry.escape('published_date')) %></div>
      <div class="content"><%= entry.get('content') %></div>
-     <button class="delete-entry" data-id="<%= entry.escape("id") %>">Done?</button>
+     <button class="delete-entry btn btn-default" data-id="<%= entry.escape("id") %>">Read?</button>
     </div>
   <% }) %>
   <h2 class="col-xs-11"> and that's all the news.... </h2>
