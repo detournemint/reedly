@@ -17,7 +17,6 @@ cat5 = FeedCategory.create(title: "Arts", user_id: user.id)
 
 #news feeds
 Feed.create_feed("http://www.npr.org/rss/rss.php?id=1001", cat1.id, user.id)
-Feed.create_feed("http://rss.cnn.com/rss/cnn_topstories.rss", cat1.id, user.id)
 Feed.create_feed("http://feeds.bbci.co.uk/news/rss.xml", cat1.id, user.id)
 Feed.create_feed("http://feeds.gothamistllc.com/SFist", cat1.id, user.id)
 
