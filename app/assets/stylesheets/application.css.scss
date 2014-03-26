@@ -37,6 +37,11 @@
   }
  
  #sidebar {
+
+    a.add-feed-button{
+      color: #8B8B8B
+    }
+
     img {
       padding-top: 10px
     }
@@ -72,6 +77,7 @@
     a{ 
       color: #E8EEF1;
     }
+    
     a:link{
       color: #E8EEF1;
     }
@@ -82,6 +88,7 @@
       position: fixed;
       bottom:5px;
     }
+  overflow: auto;
  }
 
 #content {
@@ -89,6 +96,10 @@
     overflow: auto;
   ul {
     padding-left: 5px;
+  }
+
+  a.add-category-button{
+    color: #8B8B8B
   }
 
   background: rgba(221, 235, 232, 0.8);

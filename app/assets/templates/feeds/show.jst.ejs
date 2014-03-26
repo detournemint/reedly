@@ -1,4 +1,6 @@
 <% if(feed.entries().length > 0){ %>
+<h1 class="entries-title"><%= feed.get('title') %> - (<%= feed.entries().length %>)</h1>
+<div class="title-background"></div>
   <% feed.entries().forEach(function(entry){ %>
     <div class="entry col-xs-11" id="<%= entry.escape("id") %>">
      <h2> <a href="<%= entry.escape('link') %>"><%= entry.escape('title') %></a> </h2>
@@ -7,7 +9,7 @@
      <button class="delete-entry btn btn-default" data-id="<%= entry.escape("id") %>">Read?</button>
     </div>
   <% }) %>
-  <h2 class="col-xs-11"> and that's all the news.... </h2>
+  <h1 class="col-xs-10"> and that's all.. </h1>
 <% } else { %>
-  <h2> You Read It All! </h2>
+<h1><%= feed.get('title') %> has no new entries! </h1>
 <% } %>

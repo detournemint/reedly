@@ -33,7 +33,8 @@ Reedly</a></h1>
       <div class="modal-body">
         <form>
           <input class="form-control" type="text" name="feed[url]" placeholder="Enter Feed Url">
-          <select>
+          </br>
+          <select class="form-control">
             <% feedCategories.each(function(category){ %>
               <option id="<%= category.escape('title') %>_category" name="category" value="<%= category.escape("id") %>" >
                 <%= category.escape('title') %>
@@ -41,9 +42,6 @@ Reedly</a></h1>
             <% }) %>
           </select>
         </form>
-      
-
-
       </div>
       <a class="add-feed-button btn"><span class="glyphicon glyphicon-plus"></span> Add Feed </a>  
     </div>
