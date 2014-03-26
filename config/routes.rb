@@ -10,4 +10,8 @@ Reedly::Application.routes.draw do
   end
 
   resources :feed_categories
+
+  devise_scope :user do
+    get "/guestsignin", to: "guests#login_guest"
+  end
 end
