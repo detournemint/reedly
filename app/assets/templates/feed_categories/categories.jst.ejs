@@ -8,7 +8,7 @@
   <% categories.each(function(category){ %>
       <div class="category col-xs-3">
         <div class="category-title">
-          <h3><%= category.escape('title') %> </h3>
+          <h3><%= category.escape('title') %><a class="delete-category" data-category-id="<%= category.escape("id") %>"><span class="glyphicon glyphicon-remove"></span></a></h3>
         </div>
         <hr>
         <div class="category-feeds">
@@ -19,7 +19,6 @@
           <% }) %>
           </ul>
         </div>
-        <h4 class="text-center"><a class="delete-category btn btn-danger col-xs-4 " data-category-id="<%= category.escape("id") %>">delete</a></h4>
       </div>  
        </div>
     <% }) %>
