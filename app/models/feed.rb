@@ -5,7 +5,11 @@
   has_many :entries
 
   def self.create_feed(url, feed_cat, id)
-    feed_data = SimpleRSS.parse open(url)
+    begin
+      feed_data = SimpleRSS.parse open(url)
+    rescue Errno::ENOENT
+      raise Errors::UnprocessableEntity
+    end
     begin
       feed = Feed.create!(title: feed_data.title, url: url, user_id: id, feed_category_id: feed_cat)
       feed_data.entries.take(20).each do |entry|

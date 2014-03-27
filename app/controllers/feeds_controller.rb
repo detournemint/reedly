@@ -19,6 +19,8 @@ class FeedsController < ApplicationController
     @feed = Feed.create_feed(params[:url], params[:feed_category_id], current_user.id)
     if @feed
       render :json => @feed
+    else
+      flash[:errors] = @link.errors.full_messages
     end
   end
 

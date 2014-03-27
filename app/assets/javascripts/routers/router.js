@@ -39,6 +39,7 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
   },
 
   show: function(id){
+    var that = this
     var feed = this.categories.findFeed(id);
     var categoryIndexView = new Reedly.Views.CategoryIndexView({
       collection: this.categories
@@ -47,7 +48,13 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
       model: feed,
       collection: this.categories
     });
-    //feed.fetch();
+    $.ajax({ 
+      url: "/feeds/" + id,
+      type: "GET",
+      success: function () {
+        that.categories.fetch();
+      }
+    });
     this._swapView(showView);
     this.$sidebar.html(categoryIndexView.render().$el);
     $($('.category-feeds-menu')[feed.attributes.feed_category_id - 1]).removeClass('hidden')
