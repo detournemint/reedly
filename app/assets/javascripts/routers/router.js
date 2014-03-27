@@ -57,7 +57,7 @@ Reedly.Routers.FeedRouter = Backbone.Router.extend({
     });
     this._swapView(showView);
     this.$sidebar.html(categoryIndexView.render().$el);
-    $($('.category-feeds-menu')[feed.attributes.feed_category_id - 1]).removeClass('hidden')
+    $($('.category-feeds-menu')[feed.attributes.feed_category_id -1]).removeClass('hidden')
 
   },
 
