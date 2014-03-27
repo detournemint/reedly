@@ -3,7 +3,7 @@
 <div class="title-background"></div>
   <% feed.entries().forEach(function(entry){ %>
     <div class="entry col-xs-11" id="<%= entry.escape("id") %>">
-     <h2> <a href="<%= entry.escape('link') %>"><%= entry.escape('title') %></a> </h2>
+     <h2> <a href="<%= entry.escape('link') %>" target="_newtab"><%= entry.escape('title') %></a> </h2>
      Published On: <div class="publishedDate"><%= new Date(entry.escape('published_date')) %></div>
      <div class="content"><%= entry.get('content') %></div>
      <button class="delete-entry btn btn-default" data-id="<%= entry.escape("id") %>">Read?</button>
