@@ -21,6 +21,7 @@ group :development do
   gem 'binding_of_caller'
 end
   
+gem 'thin'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
