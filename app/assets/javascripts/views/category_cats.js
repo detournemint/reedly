@@ -21,19 +21,25 @@ Reedly.Views.CategoryView = Backbone.View.extend({
   },
 
   destroyCategory: function(event){
-    var feed = this.collection.get(event.currentTarget.id);
-    this.collection.get($(event.currentTarget).data("category-id")).destroy();
+    var that = this;
+    $(event.currentTarget).parent().parent().parent().fadeOut(400, function(){
+      var feed = that.collection.get(event.currentTarget.id);
+      that.collection.get($(event.currentTarget).data("category-id")).destroy();
+    }); 
   },
 
   destroy: function(event){
     var that = this;
-    var feedId = $(event.currentTarget).data("feed-id")
-    $.ajax({
-      url: "/feeds/" + feedId,
-      type: "delete",
-      success: function () {
-        that.collection.fetch();
-      }
+    var feedId = $(event.currentTarget).data("feed-id");
+    debugger
+    $(event.currentTarget).parent().fadeOut(400, function(){
+      $.ajax({
+        url: "/feeds/" + feedId,
+        type: "delete",
+        success: function () {
+          that.collection.fetch();
+        }
+      });
     });
   },
 
