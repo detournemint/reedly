@@ -21,7 +21,8 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     });
     this.$el.html(rendered);
     $("a.show-glyph").tooltip()
-    $($('.category-feeds-menu')[this.model.attributes.feed_category_id - 1]).removeClass('hidden')
+    var catId = this.model.attributes.feed_category_id
+    $('*[data-id="'+ catId + '"]').removeClass('hidden')
     return this
   },
 
