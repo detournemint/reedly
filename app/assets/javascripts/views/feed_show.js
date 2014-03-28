@@ -62,6 +62,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
 
   destroy: function(event){ 
     var that = this;
+    var nextEntry = $(event.currentTarget).parent().next()
     $(event.currentTarget).parent().fadeOut(400, function(){
       that.model.get('entries')._byId[$(event.currentTarget).data('id')].destroy({
         success: function(){  
