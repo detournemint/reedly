@@ -9,10 +9,10 @@ window.Reedly = {
     var feeds = new Reedly.Collections.Feeds();
     var categories = new Reedly.Collections.FeedCategories();
 
-    var feedsIndexView = new Reedly.Views.FeedIndexView({
-      collection: feeds
+    var categoryIndexView = new Reedly.Views.CategoryIndexView({
+      collection: categories
     });
-    $sidebar.html(feedsIndexView.render().$el);
+    $sidebar.html(categoryIndexView.render().$el);
 
     feeds.fetch();
     categories.fetch({
