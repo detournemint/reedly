@@ -15,6 +15,7 @@ class FeedCategoriesController < ApplicationController
 
   def destroy
     FeedCategory.find(params[:id]).destroy
+    render :json => {}
   end
 
   def feed_category_params
