@@ -7,7 +7,13 @@ Reedly</a></h1>
 <div class="sidebar-categories">
 <ul>
 <% feedCategories.each(function(category){ %>
-    <div class="feed-title"><a class="expand-menu"><h4><span class="glyphicon glyphicon-chevron-right"></span> <%= category.escape('title') %></h4></div></a>
+    <div class="feed-title">
+      <h4 class="category-link">
+        <a class="expand-menu">
+          <span class="glyphicon glyphicon-chevron-right"></span> <%= category.escape('title') %>
+        </a>
+      </h4>
+    </div>
     <div class="category-feeds-menu hidden" data-id="<%= category.escape('id') %>">
       <ul>
       <% category.feeds().each(function(feed){ %>

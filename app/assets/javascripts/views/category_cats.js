@@ -49,7 +49,6 @@ Reedly.Views.CategoryView = Backbone.View.extend({
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
     this.collection.fetch();
-
   },
 
  

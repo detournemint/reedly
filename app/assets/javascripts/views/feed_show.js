@@ -23,6 +23,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
     $("a.show-glyph").tooltip()
     var catId = this.model.attributes.feed_category_id
     $('*[data-id="'+ catId + '"]').removeClass('hidden')
+    $('*[data-id="'+ catId + '"]').prev().find('span').addClass('glyphicon-chevron-down')
     return this
   },
 

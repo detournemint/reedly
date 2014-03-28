@@ -10,7 +10,9 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
 
   events: {
     "click .add-feed-button" : "addFeed",
-    "click .expand-menu" : "expandMenu"
+    "click .expand-menu" : "expandMenu",
+    "mouseover .expand-menu" : "boldText",
+    "mouseout .expand-menu" : "unBoldText"
   },
 
   render: function(){    
@@ -18,10 +20,15 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
       feedCategories: this.collection
     });
     this.$el.html(rendered);
-    this.openCategories.forEach(function(id){
-      $(this.$('.category-feeds-menu')[id]).removeClass('hidden')
-    });
     return this
+  },
+
+  boldText: function(event){
+    $(event.currentTarget).css("font-weight","Bold");
+  },
+
+  unBoldText: function(event){
+    $(event.currentTarget).css("font-weight","");
   },
 
   addFeed: function(event){
@@ -41,13 +48,10 @@ Reedly.Views.CategoryIndexView = Backbone.View.extend({
     $('.add-feed').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
-    this.openCategories.forEach(function(id){
-      $(this.$('.category-feeds-menu')[id]).removeClass('hidden')
-    });
   }, 
 
   expandMenu: function(event){
-    var target = $(event.currentTarget).parent();
+    var target = $(event.currentTarget).parent().parent();
     if(target.next().hasClass('hidden')){
       target.next().removeClass('hidden');
       target.children().first().children().children().addClass('glyphicon-chevron-down')
