@@ -5,6 +5,7 @@ body{
 
 .jumbotron{
   margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.8) !important;
 }
 
 #home-page{
@@ -17,11 +18,18 @@ h1{
 }
 
 .guest-button{
-  float: right;
   padding: 18px 28px;
     font-size: 22px;
     line-height: normal;
     -webkit-border-radius: 8px;
        -moz-border-radius: 8px;
             border-radius: 8px;
+}
+
+img{
+  margin: 20px;
+}
+
+.container {
+    max-width: 50%;
 }

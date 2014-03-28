@@ -68,11 +68,23 @@
     }
     height:100vh;
     background: rgba(83, 143, 131, 0.9);
+    
     h1 a:link{
       text-decoration:none;
     }
     h1 a:visited{
       text-decoration:none;
+    }
+
+    h4 a:link{
+      text-decoration: none !important;
+    }
+    h4 a:visited{
+      text-decoration: none !important;
+    }
+
+    h4 a:hover{
+      text-decoration: none !important; 
     }
 
 
