@@ -31,7 +31,6 @@ Reedly.Views.CategoryView = Backbone.View.extend({
   destroy: function(event){
     var that = this;
     var feedId = $(event.currentTarget).data("feed-id");
-    debugger
     $(event.currentTarget).parent().fadeOut(400, function(){
       $.ajax({
         url: "/feeds/" + feedId,
