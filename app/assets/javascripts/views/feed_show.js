@@ -67,11 +67,12 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
       that.model.get('entries')._byId[$(event.currentTarget).data('id')].destroy({
         success: function(){  
           that.collection.trigger("reset")
+          $('#content').scrollTo($("#" + nextEntry.attr('id')));
 
         }
       });
-    });  
-    $('#content').scrollTo($("#" + nextEntry.attr('id')));
+    }); 
+    
   },
 
   refresh: function () {
