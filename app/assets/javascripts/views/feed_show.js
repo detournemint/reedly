@@ -71,6 +71,7 @@ Reedly.Views.FeedShowView = Backbone.View.extend({
         }
       });
     });  
+    $('#content').scrollTo($("#" + nextEntry.attr('id')));
   },
 
   refresh: function () {
