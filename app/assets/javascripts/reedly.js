@@ -19,6 +19,7 @@ window.Reedly = {
       success: function(){
         new Reedly.Routers.FeedRouter(feeds, categories, $rootEl, $sidebar);
         Backbone.history.start();
+        
       },
       error: function(){
         console.log("fetch failed");
