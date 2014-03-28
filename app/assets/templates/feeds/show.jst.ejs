@@ -6,10 +6,10 @@
      <h2> <a href="<%= entry.escape('link') %>" target="_newtab"><%= entry.escape('title') %></a> </h2>
      Published On: <div class="publishedDate"><%= new Date(entry.escape('published_date')) %></div>
      <div class="content"><%= entry.get('content') %></div>
-     <button class="delete-entry btn btn-default" data-id="<%= entry.escape("id") %>">Read?</button>
+     <button class="delete-entry" data-id="<%= entry.escape("id") %>"><span class="glyphicon glyphicon-trash"></span></button>
     </div>
   <% }) %>
-  <h1 class="col-xs-10"> and that's all.. </h1>
+  <h1 class="col-xs-10"> and that's all, for now... </h1>
 <% } else { %>
 <h1><%= feed.get('title') %> has no new entries! </h1>
 <% } %>
