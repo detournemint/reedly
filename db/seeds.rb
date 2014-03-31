@@ -6,9 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.find_by_email('guest@guest.com').destroy
+if User.find_by_email('guest@guest.com')
+  User.find_by_email('guest@guest.com').destroy
+end
 
 user = User.create(email: 'guest@guest.com', password: 'guestguest')
+uncat = FeedCategory.find_by_user_id(user.id)
 
 # make feeds
 cat1 = FeedCategory.create(title: "News", user_id: user.id)
@@ -44,8 +47,10 @@ Feed.create_feed("http://feeds.feedburner.com/SFMOMAtoday", cat5.id, user.id)
 
 #uncategorized Feeds
 
-Feed.create_feed("http://dailycatgif.com/rss", 1, user.id)
-Feed.create_feed("http://feeds.gawker.com/lifehacker/full", 1, user.id)
-Feed.create_feed("http://feeds.feedburner.com/Lessig?format=xmlford.edu/lessig/blog/index.rdf", 1, user.id)
+uncat = FeedCategory.find_by_user_id(user.id)
+
+Feed.create_feed("http://dailycatgif.com/rss", uncat.id, user.id)
+Feed.create_feed("http://feeds.gawker.com/lifehacker/full", uncat.id, user.id)
+Feed.create_feed("http://feeds.feedburner.com/Lessig?format=xmlford.edu/lessig/blog/index.rdf", uncat.id, user.id)
 
 
