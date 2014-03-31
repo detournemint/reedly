@@ -2,7 +2,7 @@
   validates :title, :url, presence: true
   belongs_to :user
   belongs_to :category
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   def self.create_feed(url, feed_cat, id)
     begin
