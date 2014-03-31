@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.find_by_email('guest@guest.com').destroy
+
 user = User.create(email: 'guest@guest.com', password: 'guestguest')
 
 # make feeds
