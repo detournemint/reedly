@@ -53,6 +53,10 @@ gem 'rails_12factor', group: :production
 gem 'sanitize'
 gem 'htmlentities'
 
+group :development, :test do
+  gem 'rspec-rails',      ">= 3.0.0.beta"
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
