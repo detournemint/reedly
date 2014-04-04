@@ -11,9 +11,14 @@ describe User do
     expect(user).to have_at_least(1).error_on(:password)
   end
 
-  it "validates email presence length" do
+  it "validates email presence" do
     user = User.new({email: '', password: 'noemailllllll'})
     expect(user).to have_at_least(1).error_on(:email)
+  end
+
+  it "validates password presence" do
+    user = User.new({email: 'tester@test.org', password: ''})
+    expect(user).to have_at_least(1).error_on(:password)
   end
 
 end
