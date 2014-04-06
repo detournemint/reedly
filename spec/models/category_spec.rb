@@ -7,7 +7,7 @@ describe FeedCategory do
   end
 
   it "validates title presence" do
-    category = FeedCategory.create!({title: ""})
+    category = FeedCategory.new({title: ""})
     expect(category).to have_at_least(1).error_on(:title)
   end
 
