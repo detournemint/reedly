@@ -5,7 +5,14 @@
      <img src="assets/reeds.png"><h1>Reedly</h1>
     <p>a simple rss reader written in backbone.js and rails</p>
     <div class="text-center btn btn-default btn-lg" data-toggle="modal" data-target="#signInModal">Sign In</div>
-    <div class="text-center btn btn-default btn-lg" data-toggle="modal" data-target="#signUpModal">Sign Up</div>
+     <div class="text-center btn btn-default btn-lg signup" data-toggle="modal" data-target="#signUpModal">Sign Up</div>
+     <script type="text/javascript">
+      mixpanel.track("#signup", {
+        "referrer": document.referrer
+      });
+    </script>
+
+
     <a href="/guestsignin"><div class="text-center btn btn-default btn-lg guest-button"> Sign In As Guest</div> </a>
     </div>
     </center>
@@ -19,7 +26,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Sign in</h4>
       </div>
       <div class="modal-body">
