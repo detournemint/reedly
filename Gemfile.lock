@@ -73,6 +73,9 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     hike (1.2.3)
     htmlentities (4.3.1)
     i18n (0.6.9)
@@ -89,6 +92,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    mixpanel-ruby (1.4.0)
     multi_json (1.9.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -189,9 +193,11 @@ DEPENDENCIES
   binding_of_caller
   coffee-rails (~> 4.0.0)
   devise
+  figaro
   htmlentities
   jbuilder (~> 1.2)
   jquery-rails
+  mixpanel-ruby
   pg
   rails (= 4.0.2)
   rails_12factor
